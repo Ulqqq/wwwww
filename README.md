@@ -184,7 +184,7 @@ $recordChaturbate = {
     $room_status = $json.room_status
     if ($room_status -eq "public") {
       $stream_url = $json.hls_source
-      $date_time = Get-Date -format MM-dd_HH-mm-ss
+      $date_time = Get-Date -format dd-MM-HH-mm-ss
       if ($stream_quality -eq "best") {
         $quality = $null
       } elseif ($stream_quality -match ",") {
@@ -196,8 +196,8 @@ $recordChaturbate = {
         $save_directory = $save_directory + $model_name + "\"
         if (!(Test-Path $save_directory)) {New-Item -Path $save_directory -ItemType Directory}
       }
-      $output_file = $save_directory + "0Chaturbate-" + $model_name + "-" + $date_time + $quality + ".ts" ####### $date_time "Chaturbate-"
-      & $streamlink_exe --stream-segment-threads 3 --hls-duration 01:00:00 --http-timeout 10 --hls-timeout 20 --default-stream $stream_quality --url $stream_url --output $output_file
+      $output_file = $save_directory + $model_name + "-" + $date_time + "(#Chaturbate #webcam #camwhores #anal #solo #masturbation #sex #lesbian)" + ".ts" ####### $date_time "Chaturbate-"
+      & $streamlink_exe --stream-segment-threads 3 --hls-duration 03:00:00 --http-timeout 30 --hls-timeout 30 --default-stream $stream_quality --url $stream_url --output $output_file
     }
 
     if ($to_use_proxy_list -eq 1 -and ($json.detail -match "region" -or $json -eq $null)) {
@@ -205,7 +205,7 @@ $recordChaturbate = {
                         "--user-agent", "$user_agent", 
                         "--write-out", "%{http_code}", 
                         "--output", "nul", 
-                        "--url", "https://cbjpeg.stream.highwebmedia.com/stream?room=$model_name"
+                        "--url", "https://jpeg.live.mmcdn.com/stream?room=$model_name"
       $status_code = & $curl_exe @curlArguments2
       if ($status_code -eq "200") {
         if (Test-Path $proxy_list_path) {
@@ -227,7 +227,7 @@ $recordChaturbate = {
           $json = & $curl_exe @curlArguments3 | ConvertFrom-Json
           if ($json.room_status -eq "public") {
             $stream_url = $json.hls_source
-            $date_time = Get-Date -format MM-dd_HH-mm-ss
+            $date_time = Get-Date -format dd-MM-HH-mm-ss
             if ($stream_quality -eq "best") {
               $quality = $null
             } elseif ($stream_quality -match ",") {
@@ -239,8 +239,8 @@ $recordChaturbate = {
               $save_directory = $save_directory + $model_name + "\"
               if (!(Test-Path $save_directory)) {New-Item -Path $save_directory -ItemType Directory}
             }
-            $output_file = $save_directory + "0Chaturbate-" + $model_name + "-" + $date_time + $quality + "-proxy.ts" 
-            & $streamlink_exe --stream-segment-threads 3 --hls-duration 01:00:00 --http-timeout 10 --hls-timeout 20 --default-stream $stream_quality --url $stream_url --output $output_file
+            $output_file = $save_directory + $model_name + "-" + $date_time + "(#Chaturbate #webcam #camwhores #anal #solo #masturbation #sex #lesbian)" + ".ts"
+            & $streamlink_exe --stream-segment-threads 3 --hls-duration 03:00:00 --http-timeout 30 --hls-timeout 30 --default-stream $stream_quality --url $stream_url --output $output_file
           }
         }
       } 
@@ -275,7 +275,7 @@ $recordBongaCams = {
         $view_server = $json.localData.videoServerUrl
         $username = $json.performerData.username
         $stream_url = "https:" + $view_server + "/hls/stream_" + $username + "/playlist.m3u8"
-        $date_time = Get-Date -format MM-dd_HH-mm-ss
+        $date_time = Get-Date -format dd-MM-HH-mm-ss
         if ($stream_quality -eq "best" -or $stream_quality -match ",") {
           $quality = $null
         } else {
@@ -285,8 +285,8 @@ $recordBongaCams = {
           $save_directory = $save_directory + $model_name + "\"
           if (!(Test-Path $save_directory)) {New-Item -Path $save_directory -ItemType Directory}
         }
-        $output_file = $save_directory + "0BongaCams-" + $model_name + "-" + $date_time + $quality + ".ts"
-        & $streamlink_exe --stream-segment-threads 3 --hls-duration 01:00:00 --http-timeout 10 --hls-timeout 20 --default-stream $stream_quality --url $stream_url --output $output_file
+        $output_file = $save_directory + $model_name + "-" + $date_time + "(#bongacams #webcam #camwhores #anal #solo #masturbation #sex #lesbian)" + ".ts"
+        & $streamlink_exe --stream-segment-threads 3 --hls-duration 03:00:00 --http-timeout 30 --hls-timeout 30 --default-stream $stream_quality --url $stream_url --output $output_file
       }
     }
 
@@ -315,7 +315,7 @@ $recordBongaCams = {
         if ($json.performerData.showType -eq "public") {
           $view_server = $json.localData.videoServerUrl
           $stream_url = "https:" + $view_server + "/hls/stream_" + $model_name + "/playlist.m3u8"
-          $date_time = Get-Date -format MM-dd_HH-mm-ss
+          $date_time = Get-Date -format dd-MM-HH-mm-ss
           if ($stream_quality -eq "best" -or $stream_quality -match ",") {
             $quality = $null
           } else {
@@ -325,8 +325,8 @@ $recordBongaCams = {
             $save_directory = $save_directory + $model_name + "\"
             if (!(Test-Path $save_directory)) {New-Item -Path $save_directory -ItemType Directory}
           }
-          $output_file = $save_directory + "0BongaCams-" + $model_name + "-" + $date_time + $quality + "-proxy.ts"
-          & $streamlink_exe --stream-segment-threads 3 --hls-duration 01:00:00 --http-timeout 10 --hls-timeout 20 --default-stream $stream_quality --url $stream_url --output $output_file
+          $output_file = $save_directory + $model_name + "-" + $date_time + "(#bongacams #webcam #camwhores #anal #solo #masturbation #sex #lesbian)" + ".ts"
+          & $streamlink_exe --stream-segment-threads 3 --hls-duration 03:00:00 --http-timeout 30 --hls-timeout 30 --default-stream $stream_quality --url $stream_url --output $output_file
         }
       }
     }
@@ -340,6 +340,7 @@ $recordStripChat = {
 
   switch ($stream_quality) {
     "best" {$quality = $null}
+    "1280" {$quality = "_1280p"}
     "720p" {$quality = "_720p"}
     "480p" {$quality = "_480p"}
     "240p" {$quality = "_240p"}
@@ -384,14 +385,14 @@ $recordStripChat = {
                             "--connect-timeout", "$connect_timeout", 
                             "--url", "$url_stripchat/api/front/users/username/$model_name/"
           $model_id = (& $curl_exe @curlArguments4 | ConvertFrom-Json).user.id
-          $date_time = get-date -format MM-dd_HH-mm-ss
+          $date_time = get-date -format dd-MM-HH-mm-ss
           if ($separate_directory -eq 1 -and $save_directory -notmatch $model_name) {
             $save_directory = $save_directory + $model_name + "\"
             if (!(Test-Path $save_directory)) {New-Item -Path $save_directory -ItemType Directory}
           }
-          $output_file = $save_directory + "StripChat-" + $model_name + "-" + $date_time + $quality + "-proxy.ts"
+          $output_file = $save_directory + "StripChat-" + $model_name + "-" + $date_time + "(#webcam #camwhores #anal #solo #masturbation)" + ".ts"
           $stream_url = "https://b-" + $view_server + ".stripst.com/hls/" + $model_id + $quality + "/" + $model_id + $quality + ".m3u8"
-          & $streamlink_exe --stream-segment-threads 3 --hls-duration 01:00:00 --http-timeout 10 --hls-timeout 20 --default-stream best --url $stream_url --output $output_file
+          & $streamlink_exe --stream-segment-threads 3 --hls-duration 01:00:00 --http-timeout 10 --hls-timeout 5 --default-stream best --url $stream_url --output $output_file
         }
       }
     }
@@ -406,14 +407,14 @@ $recordStripChat = {
                         "--user-agent", "$user_agent", 
                         "--url", "$url_stripchat/api/front/users/username/$model_name/"
       $model_id = (& $curl_exe @curlArguments2 | ConvertFrom-Json).user.id
-      $date_time = get-date -format MM-dd_HH-mm-ss
+      $date_time = get-date -format dd-MM-HH-mm-ss
       if ($separate_directory -eq 1 -and $save_directory -notmatch $model_name) {
         $save_directory = $save_directory + $model_name + "\"
         if (!(Test-Path $save_directory)) {New-Item -Path $save_directory -ItemType Directory}
       }
       $output_file = $save_directory + "StripChat-" + $model_name + "-" + $date_time + $quality + ".ts"
       $stream_url = "https://b-" + $view_server + ".stripst.com/hls/" + $model_id + $quality + "/" + $model_id + $quality + ".m3u8"
-      & $streamlink_exe --stream-segment-threads 3 --hls-duration 01:00:00 --http-timeout 10 --hls-timeout 20 --default-stream best --url $stream_url --output $output_file
+      & $streamlink_exe --stream-segment-threads 3 --hls-duration 01:00:00 --http-timeout 10 --hls-timeout 5 --default-stream best --url $stream_url --output $output_file
     }
   Start-Sleep -seconds $waiting_time
   }
@@ -455,14 +456,14 @@ $recordMyFreeCams = {
     $status = $status -replace "online - webcam off", "camoff"
 
     if ($status -eq "online") {
-      $date_time = get-date -format MM-dd_HH-mm-ss
+      $date_time = get-date -format dd-MM-HH-mm-ss
       if ($separate_directory -eq 1 -and $save_directory -notmatch $model_name) {
         $save_directory = $save_directory + $model_name + "\"
         if (!(Test-Path $save_directory)) {New-Item -Path $save_directory -ItemType Directory}
       }
       $output_file = $save_directory + "MyFreeCams-" + $model_name + "-" + $date_time + ".ts"
       $url = $url_myfreecams + "/#" + $model_name
-      & $streamlink_exe --stream-segment-threads 3 --hls-duration 01:00:00 --http-timeout 10 --hls-timeout 20 --default-stream best --url $url --output $output_file
+      & $streamlink_exe --stream-segment-threads 3 --hls-duration 01:00:00 --http-timeout 10 --hls-timeout 5 --default-stream best --url $url --output $output_file
     }
     Start-Sleep -seconds $waiting_time
   }
@@ -497,7 +498,7 @@ function GetModelStatus ($site, $model_name) {
                       "--write-out", "%{http_code}", 
                       "--connect-timeout", "$connect_timeout", 
                       "--output", "nul", 
-                      "--url", "https://cbjpeg.stream.highwebmedia.com/stream?room=$model_name"
+                      "--url", "https://jpeg.live.mmcdn.com/stream?room=$model_name"
     $json= $null
     $json = & $curl_exe @curlArguments1 | ConvertFrom-Json
     if ($json -and $json.status -ne "401") {
@@ -1828,8 +1829,8 @@ img {max-height: 100%;}
 a {text-decoration: none;cursor: pointer;}
 </style>
 <script>
-var interval;function over(x) {interval = setInterval(function(){x.src = 'https://cbjpeg.stream.highwebmedia.com/minifap/' + x.id + '.jpg?' + Math.random();},$cb_thum_animation_speed);}
-function out(x) {x.src = 'https://cbjpeg.stream.highwebmedia.com/minifap/' + x.id + '.jpg?' + Math.random();clearInterval(interval);}
+var interval;function over(x) {interval = setInterval(function(){x.src = 'https://jpeg.live.mmcdn.com/minifap/' + x.id + '.jpg?' + Math.random();},$cb_thum_animation_speed);}
+function out(x) {x.src = 'jpeg.live.mmcdn.com/minifap/' + x.id + '.jpg?' + Math.random();clearInterval(interval);}
 window.onload = function() {let cb_blackList = JSON.parse(localStorage.getItem('cb_blackList'));if (cb_blackList) {for (let username of cb_blackList) {
 let div = document.getElementById('div_' + username);if (div) {div.style.display = 'none';}}}}
 function saveBlackList() {let cb_blackList = localStorage.getItem('cb_blackList');let file = new Blob([cb_blackList], {type: 'txt'});let a = document.createElement('a');let url = URL.createObjectURL(file);
@@ -2868,7 +2869,7 @@ $ComboBox_SiteList.Add_SelectedValueChanged({
     $ComboBox_VideoQuality.DataSource = "best", "2160p", "1440p", "1080p", "1080p,720p_alt,720p,best", "720p", "720p_alt", "720p_alt,720p,1080p,best", "480p", "240p", "other"
   }
   if ($ComboBox_SiteList.Text -eq "BongaCams") {
-    $ComboBox_VideoQuality.DataSource = "best", "1080p", "720p", "480p", "240p", "other"
+    $ComboBox_VideoQuality.DataSource = "best", "1280p",  "1080p", "720p", "480p", "240p", "other"
   }
   if ($ComboBox_SiteList.Text -eq "StripChat") {
     $ComboBox_VideoQuality.DataSource = "best", "720p", "480p", "240p"
